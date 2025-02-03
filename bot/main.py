@@ -27,7 +27,7 @@ def main():
         exit(1)
 
     # Setup configurations
-    model = os.environ.get('OPENAI_MODEL', 'gpt-3.5-turbo')
+    model = os.environ.get('OPENAI_MODEL', 'gpt-4')
     functions_available = are_functions_available(model=model)
     max_tokens_default = default_max_tokens(model=model)
     openai_config = {
@@ -69,6 +69,7 @@ def main():
         'allowed_user_ids': os.environ.get('ALLOWED_TELEGRAM_USER_IDS', '*'),
         'enable_quoting': os.environ.get('ENABLE_QUOTING', 'true').lower() == 'true',
         'enable_image_generation': os.environ.get('ENABLE_IMAGE_GENERATION', 'true').lower() == 'true',
+        'enable_image_analysis': os.environ.get('ENABLE_IMAGE_ANALYSIS', 'true').lower() == 'true',
         'enable_transcription': os.environ.get('ENABLE_TRANSCRIPTION', 'true').lower() == 'true',
         'budget_period': os.environ.get('BUDGET_PERIOD', 'monthly').lower(),
         'user_budgets': os.environ.get('USER_BUDGETS', os.environ.get('MONTHLY_USER_BUDGETS', '*')),
